@@ -1,0 +1,22 @@
+page {
+    height: 100%;
+}
+.container {
+    box-sizing: border-box;
+    height: 100%;
+
+    font-family: "Helvetica Neue", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
+    font-size: 14px;
+
+    color: #353535;
+}
+view,
+scroll-view {
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.visibility-hidden {
+    visibility: hidden;
+}

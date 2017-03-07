@@ -1,0 +1,15 @@
+{
+    "name": "wx-topbar",
+    "version": "1.0.0",
+    "description": "Topbar component for wechat miniapp",
+    "keywords": [
+        "wxml",
+        "wxss",
+        "javascript"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:jyboy/wx-topbar.git"
+    },
+    "license": "MIT"
+}

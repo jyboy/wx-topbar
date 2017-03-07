@@ -1,0 +1,55 @@
+<view class="container">
+    <scroll-view class="navbar" scroll-x="true" scroll-left="{{scrollNavbarLeft}}">
+        <view class="navbar-item {{ navbarArray[item].type }}" id="{{ item }}" wx:for="{{ navbarShowIndexArray }}" catchtap="onTapNavbar">
+            <view class="navbar-item-wrap">{{ navbarArray[item].text }}</view>
+        </view>
+        <view class="navbar-item visibility-hidden">
+            <view class="navbar-item-wrap">空白</view>
+        </view>
+    </scroll-view>
+    <view class="navbar-arrow-down" catchtap="showChannelSettingModal">
+        <view class="navbar-arrow-down-wrap">
+            <image class="navbar-arrow-icon" src="/images/index/icon_arrow_down.png"></image>
+        </view>
+    </view>
+    <view class="channel-setting {{ channelSettingShow }}">
+        <view class="channel-setting-text">频道设置</view>
+        <view class="navbar-arrow-up" catchtap="hideChannelSettingModal">
+            <image class="navbar-arrow-icon navbar-arrow-icon-up" src="/images/index/icon_arrow_up.png"></image>
+        </view>
+    </view>
+    <view class="channel-setting-modal {{ channelSettingModalShow }}" hidden="{{ channelSettingModalHide }}">
+        <view class="channel-show-text">
+            <view class="channel-show-text-wrap">显示频道</view>
+        </view>
+        <view class="channel-item" wx:for="{{ navbarShowIndexArray }}">
+            <view class="channel-item-wrap">
+                <view class="channel-item-left">
+                    <image class="channel-item-icon-minus {{ !index || navbarShowIndexArray.length < 4 ? 'visibility-hidden' : '' }}" id="{{ item }}.0" src="/images/index/icon_minus.png" catchtap="hideChannel"></image>
+                    <view class="channel-item-text">{{ navbarArray[item].text }}</view>
+                </view>
+                <view class="channel-item-up {{ index < 2 ? 'visibility-hidden' : '' }}" id="{{ item }}.00" catchtap="upChannel">上移</view>
+            </view>
+        </view>
+        <view class="channel-hide-text">
+            <view class="channel-hide-text-wrap">隐藏频道</view>
+        </view>
+        <view class="channel-item" wx:for="{{ navbarHideIndexArray }}">
+            <view class="channel-item-wrap">
+                <view class="channel-item-left">
+                    <image class="channel-item-icon-plus" id="{{ item }}.0" src="/images/index/icon_plus.png" catchtap="showChannel"></image>
+                    <view class="channel-item-text">{{ navbarArray[item].text }}</view>
+                </view>
+                <view class="channel-item-up visibility-hidden">上移</view>
+            </view>
+        </view>
+    </view>
+    <view class="loading-modal" hidden="{{ loadingModalHide }}">
+        <view class="loading-text-wrap">
+            <text class="loading-text">wx-topbar</text>
+        </view>
+    </view>
+    <scroll-view class="articles" bindtouchstart="onTouchstartArticles" bindtouchend="onTouchendArticles" hidden="{{ articlesHide }}">
+        <view class="article" wx:for="{{ temporaryArray }}">Hello, {{ articleContent }} - {{ item }}</view>
+    </scroll-view>
+</view>
