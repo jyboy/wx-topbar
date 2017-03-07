@@ -3,11 +3,11 @@
 
 ## 效果
 
-![wx-topbar-screenshot-1](http://okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-1.gif)
+![wx-topbar-screenshot-1](//okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-1.gif)
 
-![wx-topbar-screenshot-2](http://okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-2.gif)
+![wx-topbar-screenshot-2](//okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-2.gif)
 
-![wx-topbar-screenshot-3](http://okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-3.gif)
+![wx-topbar-screenshot-3](//okoz2doi2.bkt.clouddn.com/images/wx-topbar-screenshot-3.gif)
 
 ## 使用
 
