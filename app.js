@@ -1,5 +1,1 @@
-App({
-    onLaunch: function() {
-
-    }
-})
+App({});

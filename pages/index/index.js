@@ -55,18 +55,18 @@ Page({
         temporaryArray:  Array.from(new Array(9), (val, index) => index + 1)
     },
     onLoad: function() {
-        const that = this;
+        let that = this;
 
         let navbarShowIndexArrayData = wx.getStorageSync('navbarShowIndexArray');
         if (navbarShowIndexArrayData) {
-            that.setData({
+            this.setData({
                 navbarShowIndexArray: navbarShowIndexArrayData
             });
         } else {
-            that.storeNavbarShowIndexArray();
+            this.storeNavbarShowIndexArray();
         }
 
-        that.getArticles(0);
+        this.getArticles(0);
 
         wx.getSystemInfo({
             success: (res) => {
@@ -76,15 +76,15 @@ Page({
             }
         });
 
-        let navbarArray = that.data.navbarArray;
-        let navbarShowIndexArray = that.data.navbarShowIndexArray;
+        let navbarArray = this.data.navbarArray;
+        let navbarShowIndexArray = this.data.navbarShowIndexArray;
         let navbarHideIndexArray = [];
         navbarArray.forEach((item, index, array) => {
             if (-1 === navbarShowIndexArray.indexOf(index)) {
                 navbarHideIndexArray.push(index);
             }
         });
-        that.setData({
+        this.setData({
             navbarHideIndexArray: navbarHideIndexArray
         });
     },
@@ -110,15 +110,14 @@ Page({
         });
     },
     getArticles: function(index) {
-        const that = this;
-        that.setData({
+        this.setData({
             loadingModalHide: false,
             articleContent: ''
         });
         setTimeout(() => {
-            that.setData({
+            this.setData({
                 loadingModalHide: true,
-                articleContent: that.data.navbarArray[index].text
+                articleContent: this.data.navbarArray[index].text
             });
         }, 500);
     },
@@ -160,33 +159,30 @@ Page({
         return this.data.windowWidth * rpx / 750;
     },
     showChannelSettingModal: function() {
-        const that = this;
-        that.setData({
+        this.setData({
             channelSettingShow: 'channel-setting-show',
             articlesHide: true,
             channelSettingModalHide: false
         });
         setTimeout(() => {
-            that.setData({
+            this.setData({
                 channelSettingModalShow: 'channel-setting-modal-show'
             });
         }, 50);
     },
     hideChannelSettingModal: function() {
-        const that = this;
+        this.resetNavbar();
 
-        that.resetNavbar();
-
-        that.setData({
+        this.setData({
             channelSettingShow: '',
             channelSettingModalShow: ''
         });
         setTimeout(() => {
-            that.setData({
+            this.setData({
                 channelSettingModalHide: true,
                 articlesHide: false
             });
-            that.getArticles(0);
+            this.getArticles(0);
         }, 500);
     },
     hideChannel: function(e) {
@@ -221,10 +217,9 @@ Page({
         this.storeNavbarShowIndexArray();
     },
     storeNavbarShowIndexArray: function() {
-        const that = this;
         wx.setStorage({
             key: 'navbarShowIndexArray',
-            data: that.data.navbarShowIndexArray
+            data: this.data.navbarShowIndexArray
         });
     },
     resetNavbar: function() {
@@ -240,4 +235,4 @@ Page({
             scrollNavbarLeft: 0
         });
     }
-})
+});
